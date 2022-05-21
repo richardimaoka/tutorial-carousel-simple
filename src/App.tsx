@@ -17,7 +17,9 @@ const CarouselItem = ({ imagePath }: CarouselItemProps) => {
   );
 };
 
-const App = () => {
+const CarouselContainer = () => {
+  const imagePathList = ["/images/1.png", "/images/2.png", "/images/3.png"];
+
   return (
     <div
       style={{
@@ -28,11 +30,15 @@ const App = () => {
         scrollSnapType: "x mandatory",
       }}
     >
-      <CarouselItem imagePath="/images/1.png" />
-      <CarouselItem imagePath="/images/2.png" />
-      <CarouselItem imagePath="/images/3.png" />
+      {imagePathList.map((path) => (
+        <CarouselItem key={path} imagePath={path} />
+      ))}
     </div>
   );
+};
+
+const App = () => {
+  return <CarouselContainer />;
 };
 
 export default App;
