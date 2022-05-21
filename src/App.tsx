@@ -17,7 +17,11 @@ const CarouselItem = ({ imagePath }: CarouselItemProps) => {
   );
 };
 
-const App = () => {
+interface CarouselContainerProps {
+  imagePathList: string[];
+}
+
+const CarouselContainer = ({ imagePathList }: CarouselContainerProps) => {
   return (
     <div
       style={{
@@ -28,10 +32,18 @@ const App = () => {
         scrollSnapType: "x mandatory",
       }}
     >
-      <CarouselItem imagePath="/images/1.png" />
-      <CarouselItem imagePath="/images/2.png" />
-      <CarouselItem imagePath="/images/3.png" />
+      {imagePathList.map((path) => (
+        <CarouselItem key={path} imagePath={path} />
+      ))}
     </div>
+  );
+};
+
+const App = () => {
+  return (
+    <CarouselContainer
+      imagePathList={["/images/1.png", "/images/2.png", "/images/3.png"]}
+    />
   );
 };
 
