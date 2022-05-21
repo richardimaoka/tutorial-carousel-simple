@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 interface CarouselItemProps {
   imagePath: string;
+  isSnapped: boolean;
 }
 
-const CarouselItem = ({ imagePath }: CarouselItemProps) => {
+const CarouselItem = ({ imagePath, isSnapped }: CarouselItemProps) => {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (isSnapped) {
+      ref?.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+
   return (
-    <div style={{ scrollSnapAlign: "start", padding: "4px" }}>
+    <div ref={ref} style={{ scrollSnapAlign: "start", padding: "4px" }}>
       <img
         width="640px"
         height="360px"
@@ -17,28 +25,73 @@ const CarouselItem = ({ imagePath }: CarouselItemProps) => {
   );
 };
 
-const CarouselContainer = () => {
-  const imagePathList = ["/images/1.png", "/images/2.png", "/images/3.png"];
+interface CarouselContainerProps {
+  imagePathList: string[];
+  snapped: string;
+}
 
+const CarouselContainer = ({
+  imagePathList,
+  snapped,
+}: CarouselContainerProps) => {
   return (
     <div
       style={{
         display: "flex",
         flexDirection: "row",
-        width: "648px",
         overflowX: "auto",
         scrollSnapType: "x mandatory",
       }}
     >
       {imagePathList.map((path) => (
-        <CarouselItem key={path} imagePath={path} />
+        <CarouselItem
+          key={path}
+          imagePath={path}
+          isSnapped={snapped === path}
+        />
       ))}
     </div>
   );
 };
 
+const CarouseControl = () => {
+  const imagePathList = ["/images/1.png", "/images/2.png", "/images/3.png"];
+  const [snapped, setSnapped] = useState(imagePathList[0]);
+
+  return (
+    <div style={{ width: "648px" }}>
+      <CarouselContainer imagePathList={imagePathList} snapped={snapped} />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          padding: "4px 0px",
+        }}
+      >
+        {imagePathList.map((path, index) => (
+          <button
+            style={{
+              margin: "0px 10px",
+              width: "40px",
+              height: "40px",
+              borderRadius: "20px",
+              borderWidth: "0px",
+              color: "#ffffff",
+              backgroundColor: path === snapped ? "#5955D9" : "#bcbbd8",
+            }}
+            key={path}
+            onClick={() => setSnapped(path)}
+          >
+            {index + 1}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const App = () => {
-  return <CarouselContainer />;
+  return <CarouseControl />;
 };
 
 export default App;
