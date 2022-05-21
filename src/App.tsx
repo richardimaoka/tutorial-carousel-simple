@@ -8,9 +8,10 @@ function App() {
         flexDirection: "row",
         width: "648px",
         overflowX: "auto",
+        scrollSnapType: "x mandatory",
       }}
     >
-      <div style={{ padding: "4px" }}>
+      <div style={{ scrollSnapAlign: "start", padding: "4px" }}>
         <img
           width="640px"
           height="360px"
@@ -18,7 +19,7 @@ function App() {
           src="/images/1.png"
         />
       </div>
-      <div style={{ padding: "4px" }}>
+      <div style={{ scrollSnapAlign: "start", padding: "4px" }}>
         <img
           width="640px"
           height="360px"
@@ -26,7 +27,8 @@ function App() {
           src="/images/2.png"
         />
       </div>
-      <div style={{ padding: "4px" }}>
+
+      <div style={{ scrollSnapAlign: "start", padding: "4px" }}>
         <img
           width="640px"
           height="360px"
