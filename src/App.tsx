@@ -72,7 +72,19 @@ const CarouselControl = () => {
         }}
       >
         {imagePathList.map((path, index) => (
-          <button key={path} onClick={() => setSnapped(path)}>
+          <button
+            style={{
+              margin: "0px 10px",
+              width: "40px",
+              height: "40px",
+              borderRadius: "20px",
+              borderWidth: "0px",
+              color: "#ffffff",
+              backgroundColor: path === snapped ? "#5955D9" : "#bcbbd8",
+            }}
+            key={path}
+            onClick={() => setSnapped(path)}
+          >
             {index + 1}
           </button>
         ))}
