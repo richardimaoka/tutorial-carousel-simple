@@ -7,7 +7,7 @@ interface CarouselItemProps {
 const CarouselItem = ({ imagePath }: CarouselItemProps) => {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    if (imagePath === "/images/2.png") {
+    if (imagePath === "/images/3.png") {
       ref?.current?.scrollIntoView({ behavior: "smooth" });
     }
   });
