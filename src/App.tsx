@@ -39,7 +39,7 @@ const CarouselContainer = ({
       style={{
         display: "flex",
         flexDirection: "row",
-        overflowX: "auto",
+        overflowX: "hidden",
         scrollSnapType: "x mandatory",
       }}
     >
