@@ -1,5 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 
+interface ImageState {
+  imagePath: string;
+  isSnapped: boolean;
+}
+
 interface CarouselItemProps {
   imagePath: string;
   isSnapped: boolean;
@@ -95,8 +100,29 @@ const CarouselButtons = ({
 };
 
 const CarouselControl = () => {
+  const [images, setImages] = useState<ImageState[]>([
+    {
+      imagePath: "/images/1.png",
+      isSnapped: true,
+    },
+    {
+      imagePath: "/images/2.png",
+      isSnapped: false,
+    },
+    {
+      imagePath: "/images/3.png",
+      isSnapped: false,
+    },
+  ]);
   const imagePathList = ["/images/1.png", "/images/2.png", "/images/3.png"];
   const [snapped, setSnapped] = useState(imagePathList[0]);
+  const selectSnapped = (selectIndex: number) => {
+    const updated: ImageState[] = images.map((state, index) => ({
+      imagePath: state.imagePath,
+      isSnapped: selectIndex === index,
+    }));
+    setImages(updated);
+  };
 
   return (
     <div style={{ width: "648px" }}>
@@ -107,9 +133,7 @@ const CarouselControl = () => {
       <CarouselButtons
         imagePathList={imagePathList}
         snappedImagePath={snapped}
-        onClick={(index) => {
-          setSnapped(imagePathList[index]);
-        }}
+        onClick={selectSnapped}
       />
     </div>
   );
