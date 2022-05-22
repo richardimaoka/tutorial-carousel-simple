@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 interface CarouselItemProps {
   imagePath: string;
@@ -47,12 +47,15 @@ const CarouselContainer = ({ imagePathList }: CarouselContainerProps) => {
 
 const CarouselControl = () => {
   const imagePathList = ["/images/1.png", "/images/2.png", "/images/3.png"];
+  const [snapped, setSnapped] = useState(imagePathList[0]);
+
   return (
     <div>
       <CarouselContainer imagePathList={imagePathList} />
-      <button>1</button>
-      <button>2</button>
-      <button>3</button>
+      <button onClick={() => setSnapped(imagePathList[0])}>1</button>
+      <button onClick={() => setSnapped(imagePathList[1])}>2</button>
+      <button onClick={() => setSnapped(imagePathList[2])}>3</button>
+      <span>snapped ={snapped}</span>
     </div>
   );
 };
