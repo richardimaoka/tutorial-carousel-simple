@@ -28,4 +28,14 @@ npm run start
 
 # Reactロゴが大きく表示されているこの画面から、画面の表示をシンプルなものに差し替えましょう。そうすると、それ以降行うソースコード変更がわかりやすくなります。
 
+# :large_orange_diamond: Action: 以下のコマンドを入力してください。
+
+# ```shell
+git apply patches/faa3c42.patch # empty application
+# ```
+
+# :white_check_mark: Result: 以下のように表示されればOKです
+
+# ![2022-05-06_21h29_54.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/75738/ff80a767-9298-5fa0-c66a-f02ad9efe2a7.png)
+
 # このプロセスは立ち上げたままにしてください。

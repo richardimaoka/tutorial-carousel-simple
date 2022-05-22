@@ -33,8 +33,8 @@ cd tutorial-carousel-simple
 :large_orange_diamond: Action: 以下のコマンドを入力してください。
 
 ```shell
-git apply patches/57c0b6f.patch # npx create-react-app . --template typescript
-git apply patches/2cd7cbe.patch # npx prettier --write .
+git apply patches/57c0b6f.patch # npx create-react-app client --template typescript
+git apply patches/2cd7cbe.patch # (cd client && npx prettier --write .)
 cd client
 npm install
 npm run start
@@ -46,4 +46,73 @@ npm run start
 
 Reactロゴが大きく表示されているこの画面から、画面の表示をシンプルなものに差し替えましょう。そうすると、それ以降行うソースコード変更がわかりやすくなります。
 
+:large_orange_diamond: Action: 以下のコマンドを入力してください。
+
+```shell
+git apply patches/faa3c42.patch # empty application
+```
+
+:white_check_mark: Result: 以下のように表示されればOKです
+
+![2022-05-06_21h29_54.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/75738/ff80a767-9298-5fa0-c66a-f02ad9efe2a7.png)
+
 このプロセスは立ち上げたままにしてください。
+
+
+## 2. カルーセルのスライダーを作成
+
+:large_orange_diamond: Action: 新しいターミナルを開いてください。
+
+![アートボード 2.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/75738/1f714def-aafd-9c7d-cea6-319c3c2bf966.png)
+
+まずは
+
+:large_orange_diamond: Action: 以下のコマンドを入力してください。
+
+```shell
+git apply patches/fac9fb2.patch # images added
+```
+
+:white_check_mark: Result: 以下のように表示されればOKです
+
+![2022-05-23_00h09_48.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/75738/9165278d-9c3e-9a73-c019-3fcf24ad4901.png)
+
+:large_orange_diamond: Action: 以下のコマンドを入力してください。
+
+```shell
+git apply patches/9428da6.patch # display: flex
+```
+
+:white_check_mark: Result: 以下のように表示されればOKです
+
+![2022-05-23_00h06_42.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/75738/9509f6bf-decf-e2d8-3f6c-c0204bfd6dc1.png)
+
+:large_orange_diamond: Action: 以下のコマンドを入力してください。
+
+```shell
+git apply patches/9428da6.patch # display: flex
+```
+
+:white_check_mark: Result: 以下のように表示されればOKです
+
+![2022-05-23_00h06_42.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/75738/9509f6bf-decf-e2d8-3f6c-c0204bfd6dc1.png)
+
+:large_orange_diamond: Action: 以下のコマンドを入力してください。
+
+```shell
+git apply patches/ab96f3c.patch # overflow-x: auto
+```
+
+:white_check_mark: Result: 以下のように表示されればOKです
+
+<iframe width="640" height="360" src="https://www.youtube.com/embed/yREnYC_c7Ug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+:large_orange_diamond: Action: 以下のコマンドを入力してください。
+
+```shell
+git apply patches/bbf2ab3.patch # scrollSnapType and scrollSnapAlign
+```
+
+:white_check_mark: Result: 以下のように表示されればOKです
+
+<iframe width="640" height="360" src="https://www.youtube.com/embed/yREnYC_c7Ug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
