@@ -61,42 +61,53 @@ interface CarouselButtonsProps {
 }
 
 const CarouselButtons = ({ images, onClick }: CarouselButtonsProps) => {
-  return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        padding: "4px 0px",
-      }}
-    >
-      <button
+  const snapped = images.findIndex((image) => image.isSnapped);
+
+  if (snapped < 0) {
+    return <></>;
+  } else {
+    const hasPrev = 0 < snapped;
+    const hasNext = snapped < images.length - 1;
+
+    return (
+      <div
         style={{
-          margin: "0px 10px",
-          width: "40px",
-          height: "40px",
-          borderRadius: "20px",
-          borderWidth: "0px",
-          color: "#ffffff",
-          backgroundColor: "#5955D9",
+          display: "flex",
+          justifyContent: "space-between",
+          padding: "4px 0px",
         }}
       >
-        &lt;
-      </button>
-      <button
-        style={{
-          margin: "0px 10px",
-          width: "40px",
-          height: "40px",
-          borderRadius: "20px",
-          borderWidth: "0px",
-          color: "#ffffff",
-          backgroundColor: "#5955D9",
-        }}
-      >
-        &gt;
-      </button>
-    </div>
-  );
+        <button
+          style={{
+            margin: "0px 10px",
+            width: "40px",
+            height: "40px",
+            borderRadius: "20px",
+            borderWidth: "0px",
+            color: "#ffffff",
+            backgroundColor: hasPrev ? "#5955D9" : "#bcbbd8",
+          }}
+          onClick={hasPrev ? () => onClick(snapped - 1) : undefined}
+        >
+          &lt;
+        </button>
+        <button
+          style={{
+            margin: "0px 10px",
+            width: "40px",
+            height: "40px",
+            borderRadius: "20px",
+            borderWidth: "0px",
+            color: "#ffffff",
+            backgroundColor: hasNext ? "#5955D9" : "#bcbbd8",
+          }}
+          onClick={hasNext ? () => onClick(snapped + 1) : undefined}
+        >
+          &gt;
+        </button>
+      </div>
+    );
+  }
 };
 
 const CarouselControl = () => {
