@@ -1,0 +1,47 @@
+commit b5d8ceb4095b8579c60a09c16eb3c3061e99baec
+Author: Richard Imaoka <richard.e.imaoka@gmail.com>
+Date:   Sun May 22 15:30:55 2022 +0900
+
+    centering buttons
+
+diff --git a/client/src/App.tsx b/client/src/App.tsx
+index 314bf9d..8a701bf 100644
+--- a/client/src/App.tsx
++++ b/client/src/App.tsx
+@@ -39,7 +39,6 @@ const CarouselContainer = ({
+       style={{
+         display: "flex",
+         flexDirection: "row",
+-        width: "648px",
+         overflowX: "auto",
+         scrollSnapType: "x mandatory",
+       }}
+@@ -60,14 +59,24 @@ const CarouselControl = () => {
+   const [snapped, setSnapped] = useState(imagePathList[0]);
+ 
+   return (
+-    <div>
++    <div style={{ width: "648px" }}>
+       <CarouselContainer
+         imagePathList={imagePathList}
+         snappedImagePath={snapped}
+       />
+-      <button onClick={() => setSnapped(imagePathList[0])}>1</button>
+-      <button onClick={() => setSnapped(imagePathList[1])}>2</button>
+-      <button onClick={() => setSnapped(imagePathList[2])}>3</button>
++      <div
++        style={{
++          display: "flex",
++          justifyContent: "center",
++          padding: "4px 0px",
++        }}
++      >
++        {imagePathList.map((path, index) => (
++          <button key={path} onClick={() => setSnapped(path)}>
++            {index + 1}
++          </button>
++        ))}
++      </div>
+     </div>
+   );
+ };

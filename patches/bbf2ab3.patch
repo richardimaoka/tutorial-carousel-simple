@@ -1,0 +1,41 @@
+commit bbf2ab3a4da64a08f631d73a9cd699e8cdb26e48
+Author: Richard Imaoka <richard.e.imaoka@gmail.com>
+Date:   Sat May 21 17:44:49 2022 +0900
+
+    scrollSnapType and scrollSnapAlign
+
+diff --git a/client/src/App.tsx b/client/src/App.tsx
+index d02a65b..38c8e6d 100644
+--- a/client/src/App.tsx
++++ b/client/src/App.tsx
+@@ -8,9 +8,10 @@ function App() {
+         flexDirection: "row",
+         width: "648px",
+         overflowX: "auto",
++        scrollSnapType: "x mandatory",
+       }}
+     >
+-      <div style={{ padding: "4px" }}>
++      <div style={{ scrollSnapAlign: "start", padding: "4px" }}>
+         <img
+           width="640px"
+           height="360px"
+@@ -18,7 +19,7 @@ function App() {
+           src="/images/1.png"
+         />
+       </div>
+-      <div style={{ padding: "4px" }}>
++      <div style={{ scrollSnapAlign: "start", padding: "4px" }}>
+         <img
+           width="640px"
+           height="360px"
+@@ -26,7 +27,8 @@ function App() {
+           src="/images/2.png"
+         />
+       </div>
+-      <div style={{ padding: "4px" }}>
++
++      <div style={{ scrollSnapAlign: "start", padding: "4px" }}>
+         <img
+           width="640px"
+           height="360px"

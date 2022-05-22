@@ -1,0 +1,26 @@
+commit ab96f3c9e410f029d69d61b9e32dbbbe1ae3d055
+Author: Richard Imaoka <richard.e.imaoka@gmail.com>
+Date:   Sat May 21 15:05:52 2022 +0900
+
+    overflow-x: auto
+
+diff --git a/client/src/App.tsx b/client/src/App.tsx
+index 5362d6f..d02a65b 100644
+--- a/client/src/App.tsx
++++ b/client/src/App.tsx
+@@ -2,7 +2,14 @@ import React from "react";
+ 
+ function App() {
+   return (
+-    <div style={{ display: "flex", flexDirection: "row" }}>
++    <div
++      style={{
++        display: "flex",
++        flexDirection: "row",
++        width: "648px",
++        overflowX: "auto",
++      }}
++    >
+       <div style={{ padding: "4px" }}>
+         <img
+           width="640px"

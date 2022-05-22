@@ -1,0 +1,31 @@
+commit d52f9d53b5a728a3aa1dd12c86805f58cdb7a25f
+Author: Richard Imaoka <richard.e.imaoka@gmail.com>
+Date:   Sun May 22 15:21:08 2022 +0900
+
+    move the carousel slider to the 2nd item
+
+diff --git a/client/src/App.tsx b/client/src/App.tsx
+index 0301898..b9bb83f 100644
+--- a/client/src/App.tsx
++++ b/client/src/App.tsx
+@@ -1,12 +1,18 @@
+-import React from "react";
++import React, { useEffect, useRef } from "react";
+ 
+ interface CarouselItemProps {
+   imagePath: string;
+ }
+ 
+ const CarouselItem = ({ imagePath }: CarouselItemProps) => {
++  const ref = useRef<HTMLDivElement>(null);
++  useEffect(() => {
++    if (imagePath === "/images/2.png") {
++      ref?.current?.scrollIntoView({ behavior: "smooth" });
++    }
++  });
+   return (
+-    <div style={{ scrollSnapAlign: "start", padding: "4px" }}>
++    <div ref={ref} style={{ scrollSnapAlign: "start", padding: "4px" }}>
+       <img
+         width="640px"
+         height="360px"

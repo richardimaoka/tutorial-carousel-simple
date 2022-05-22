@@ -1,0 +1,20 @@
+commit 93e38163ad1e93a549017ebd5595c91d9b1699da
+Author: Richard Imaoka <richard.e.imaoka@gmail.com>
+Date:   Sun May 22 15:18:22 2022 +0900
+
+    add barebone buttons
+
+diff --git a/client/src/App.tsx b/client/src/App.tsx
+index 8bfcf88..0301898 100644
+--- a/client/src/App.tsx
++++ b/client/src/App.tsx
+@@ -44,6 +44,9 @@ const CarouselControl = () => {
+   return (
+     <div>
+       <CarouselContainer imagePathList={imagePathList} />
++      <button>1</button>
++      <button>2</button>
++      <button>3</button>
+     </div>
+   );
+ };

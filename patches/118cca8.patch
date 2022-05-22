@@ -1,0 +1,19 @@
+commit 118cca8f49cefe7e9359a5374ba54f2ba316b3db
+Author: Richard Imaoka <richard.e.imaoka@gmail.com>
+Date:   Sun May 22 15:21:28 2022 +0900
+
+    move the carousel slider to the 3rd item
+
+diff --git a/client/src/App.tsx b/client/src/App.tsx
+index b9bb83f..91fb21d 100644
+--- a/client/src/App.tsx
++++ b/client/src/App.tsx
+@@ -7,7 +7,7 @@ interface CarouselItemProps {
+ const CarouselItem = ({ imagePath }: CarouselItemProps) => {
+   const ref = useRef<HTMLDivElement>(null);
+   useEffect(() => {
+-    if (imagePath === "/images/2.png") {
++    if (imagePath === "/images/3.png") {
+       ref?.current?.scrollIntoView({ behavior: "smooth" });
+     }
+   });

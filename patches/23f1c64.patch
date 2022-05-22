@@ -1,0 +1,32 @@
+commit 23f1c64f44d90b78e96ff75ce7008d57129b8883
+Author: Richard Imaoka <richard.e.imaoka@gmail.com>
+Date:   Sun May 22 15:16:23 2022 +0900
+
+    Add CarouselControll
+
+diff --git a/client/src/App.tsx b/client/src/App.tsx
+index e43175a..8bfcf88 100644
+--- a/client/src/App.tsx
++++ b/client/src/App.tsx
+@@ -39,12 +39,17 @@ const CarouselContainer = ({ imagePathList }: CarouselContainerProps) => {
+   );
+ };
+ 
+-const App = () => {
++const CarouselControl = () => {
++  const imagePathList = ["/images/1.png", "/images/2.png", "/images/3.png"];
+   return (
+-    <CarouselContainer
+-      imagePathList={["/images/1.png", "/images/2.png", "/images/3.png"]}
+-    />
++    <div>
++      <CarouselContainer imagePathList={imagePathList} />
++    </div>
+   );
+ };
+ 
++const App = () => {
++  return <CarouselControl />;
++};
++
+ export default App;

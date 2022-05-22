@@ -1,0 +1,19 @@
+commit 9dc0fda3ba3b598414ba8de40770e0bcf62aa4ca
+Author: Richard Imaoka <richard.e.imaoka@gmail.com>
+Date:   Sun May 22 16:12:47 2022 +0900
+
+    hide the scrollbar
+
+diff --git a/client/src/App.tsx b/client/src/App.tsx
+index 558fb03..2567c68 100644
+--- a/client/src/App.tsx
++++ b/client/src/App.tsx
+@@ -39,7 +39,7 @@ const CarouselContainer = ({
+       style={{
+         display: "flex",
+         flexDirection: "row",
+-        overflowX: "auto",
++        overflowX: "hidden",
+         scrollSnapType: "x mandatory",
+       }}
+     >

@@ -1,0 +1,46 @@
+commit c72d5bcdfacfc00ce59a1816e8d5de2ae49e4e3d
+Author: Richard Imaoka <richard.e.imaoka@gmail.com>
+Date:   Sun May 22 00:13:39 2022 +0900
+
+    CarouselContainer component
+
+diff --git a/client/src/App.tsx b/client/src/App.tsx
+index 72d1689..e43175a 100644
+--- a/client/src/App.tsx
++++ b/client/src/App.tsx
+@@ -17,7 +17,11 @@ const CarouselItem = ({ imagePath }: CarouselItemProps) => {
+   );
+ };
+ 
+-const App = () => {
++interface CarouselContainerProps {
++  imagePathList: string[];
++}
++
++const CarouselContainer = ({ imagePathList }: CarouselContainerProps) => {
+   return (
+     <div
+       style={{
+@@ -28,11 +32,19 @@ const App = () => {
+         scrollSnapType: "x mandatory",
+       }}
+     >
+-      <CarouselItem imagePath="/images/1.png" />
+-      <CarouselItem imagePath="/images/2.png" />
+-      <CarouselItem imagePath="/images/3.png" />
++      {imagePathList.map((path) => (
++        <CarouselItem key={path} imagePath={path} />
++      ))}
+     </div>
+   );
+ };
+ 
++const App = () => {
++  return (
++    <CarouselContainer
++      imagePathList={["/images/1.png", "/images/2.png", "/images/3.png"]}
++    />
++  );
++};
++
+ export default App;

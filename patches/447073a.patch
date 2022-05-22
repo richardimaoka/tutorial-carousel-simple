@@ -1,0 +1,74 @@
+commit 447073a8a878b1cb6e8cc4391d3b937b3b2305d0
+Author: Richard Imaoka <richard.e.imaoka@gmail.com>
+Date:   Sun May 22 15:28:07 2022 +0900
+
+    buttons to work
+
+diff --git a/client/src/App.tsx b/client/src/App.tsx
+index c76cbba..314bf9d 100644
+--- a/client/src/App.tsx
++++ b/client/src/App.tsx
+@@ -2,15 +2,17 @@ import React, { useEffect, useRef, useState } from "react";
+ 
+ interface CarouselItemProps {
+   imagePath: string;
++  isSnapped: boolean;
+ }
+ 
+-const CarouselItem = ({ imagePath }: CarouselItemProps) => {
++const CarouselItem = ({ imagePath, isSnapped }: CarouselItemProps) => {
+   const ref = useRef<HTMLDivElement>(null);
+   useEffect(() => {
+-    if (imagePath === "/images/3.png") {
++    if (isSnapped) {
+       ref?.current?.scrollIntoView({ behavior: "smooth" });
+     }
+   });
++
+   return (
+     <div ref={ref} style={{ scrollSnapAlign: "start", padding: "4px" }}>
+       <img
+@@ -25,9 +27,13 @@ const CarouselItem = ({ imagePath }: CarouselItemProps) => {
+ 
+ interface CarouselContainerProps {
+   imagePathList: string[];
++  snappedImagePath: string;
+ }
+ 
+-const CarouselContainer = ({ imagePathList }: CarouselContainerProps) => {
++const CarouselContainer = ({
++  imagePathList,
++  snappedImagePath,
++}: CarouselContainerProps) => {
+   return (
+     <div
+       style={{
+@@ -39,7 +45,11 @@ const CarouselContainer = ({ imagePathList }: CarouselContainerProps) => {
+       }}
+     >
+       {imagePathList.map((path) => (
+-        <CarouselItem key={path} imagePath={path} />
++        <CarouselItem
++          key={path}
++          imagePath={path}
++          isSnapped={snappedImagePath === path}
++        />
+       ))}
+     </div>
+   );
+@@ -51,11 +61,13 @@ const CarouselControl = () => {
+ 
+   return (
+     <div>
+-      <CarouselContainer imagePathList={imagePathList} />
++      <CarouselContainer
++        imagePathList={imagePathList}
++        snappedImagePath={snapped}
++      />
+       <button onClick={() => setSnapped(imagePathList[0])}>1</button>
+       <button onClick={() => setSnapped(imagePathList[1])}>2</button>
+       <button onClick={() => setSnapped(imagePathList[2])}>3</button>
+-      <span>snapped ={snapped}</span>
+     </div>
+   );
+ };

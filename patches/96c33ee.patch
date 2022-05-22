@@ -1,0 +1,95 @@
+commit 96c33ee9e94c04b643af882b1bc8cb26d59cef63
+Author: Richard Imaoka <richard.e.imaoka@gmail.com>
+Date:   Sun May 22 15:52:22 2022 +0900
+
+    buttons as a separate component
+
+diff --git a/client/src/App.tsx b/client/src/App.tsx
+index 2567c68..3ffc86b 100644
+--- a/client/src/App.tsx
++++ b/client/src/App.tsx
+@@ -54,6 +54,46 @@ const CarouselContainer = ({
+   );
+ };
+ 
++interface CarouselButtonsProps {
++  imagePathList: string[];
++  snappedImagePath: string;
++  onClick: (buttonIndex: number) => void;
++}
++
++const CarouselButtons = ({
++  imagePathList,
++  snappedImagePath,
++  onClick,
++}: CarouselButtonsProps) => {
++  return (
++    <div
++      style={{
++        display: "flex",
++        justifyContent: "center",
++        padding: "4px 0px",
++      }}
++    >
++      {imagePathList.map((path, index) => (
++        <button
++          style={{
++            margin: "0px 10px",
++            width: "40px",
++            height: "40px",
++            borderRadius: "20px",
++            borderWidth: "0px",
++            color: "#ffffff",
++            backgroundColor: path === snappedImagePath ? "#5955D9" : "#bcbbd8",
++          }}
++          key={path}
++          onClick={() => onClick(index)}
++        >
++          {index + 1}
++        </button>
++      ))}
++    </div>
++  );
++};
++
+ const CarouselControl = () => {
+   const imagePathList = ["/images/1.png", "/images/2.png", "/images/3.png"];
+   const [snapped, setSnapped] = useState(imagePathList[0]);
+@@ -64,31 +104,13 @@ const CarouselControl = () => {
+         imagePathList={imagePathList}
+         snappedImagePath={snapped}
+       />
+-      <div
+-        style={{
+-          display: "flex",
+-          justifyContent: "center",
+-          padding: "4px 0px",
++      <CarouselButtons
++        imagePathList={imagePathList}
++        snappedImagePath={snapped}
++        onClick={(index) => {
++          setSnapped(imagePathList[index]);
+         }}
+-      >
+-        {imagePathList.map((path, index) => (
+-          <button
+-            style={{
+-              margin: "0px 10px",
+-              width: "40px",
+-              height: "40px",
+-              borderRadius: "20px",
+-              borderWidth: "0px",
+-              color: "#ffffff",
+-              backgroundColor: path === snapped ? "#5955D9" : "#bcbbd8",
+-            }}
+-            key={path}
+-            onClick={() => setSnapped(path)}
+-          >
+-            {index + 1}
+-          </button>
+-        ))}
+-      </div>
++      />
+     </div>
+   );
+ };

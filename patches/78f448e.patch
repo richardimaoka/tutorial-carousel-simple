@@ -1,0 +1,73 @@
+commit 78f448e6767c60e49fc70e346f21cd46480e4158
+Author: Richard Imaoka <richard.e.imaoka@gmail.com>
+Date:   Sun May 22 00:05:21 2022 +0900
+
+    CarouselItem component
+
+diff --git a/client/src/App.tsx b/client/src/App.tsx
+index 38c8e6d..72d1689 100644
+--- a/client/src/App.tsx
++++ b/client/src/App.tsx
+@@ -1,6 +1,23 @@
+ import React from "react";
+ 
+-function App() {
++interface CarouselItemProps {
++  imagePath: string;
++}
++
++const CarouselItem = ({ imagePath }: CarouselItemProps) => {
++  return (
++    <div style={{ scrollSnapAlign: "start", padding: "4px" }}>
++      <img
++        width="640px"
++        height="360px"
++        style={{ verticalAlign: "middle" }}
++        src={imagePath}
++      />
++    </div>
++  );
++};
++
++const App = () => {
+   return (
+     <div
+       style={{
+@@ -11,33 +28,11 @@ function App() {
+         scrollSnapType: "x mandatory",
+       }}
+     >
+-      <div style={{ scrollSnapAlign: "start", padding: "4px" }}>
+-        <img
+-          width="640px"
+-          height="360px"
+-          style={{ verticalAlign: "middle" }}
+-          src="/images/1.png"
+-        />
+-      </div>
+-      <div style={{ scrollSnapAlign: "start", padding: "4px" }}>
+-        <img
+-          width="640px"
+-          height="360px"
+-          style={{ verticalAlign: "middle" }}
+-          src="/images/2.png"
+-        />
+-      </div>
+-
+-      <div style={{ scrollSnapAlign: "start", padding: "4px" }}>
+-        <img
+-          width="640px"
+-          height="360px"
+-          style={{ verticalAlign: "middle" }}
+-          src="/images/3.png"
+-        />
+-      </div>
++      <CarouselItem imagePath="/images/1.png" />
++      <CarouselItem imagePath="/images/2.png" />
++      <CarouselItem imagePath="/images/3.png" />
+     </div>
+   );
+-}
++};
+ 
+ export default App;
