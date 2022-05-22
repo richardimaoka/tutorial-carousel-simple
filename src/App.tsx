@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 interface CarouselItemProps {
   imagePath: string;
 }
 
 const CarouselItem = ({ imagePath }: CarouselItemProps) => {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (imagePath === "/images/2.png") {
+      ref?.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  });
   return (
-    <div style={{ scrollSnapAlign: "start", padding: "4px" }}>
+    <div ref={ref} style={{ scrollSnapAlign: "start", padding: "4px" }}>
       <img
         width="640px"
         height="360px"
