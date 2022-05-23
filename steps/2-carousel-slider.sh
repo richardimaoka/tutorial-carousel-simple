@@ -37,7 +37,7 @@ git apply patches/9428da6.patch # display: flex
 git apply patches/ab96f3c.patch # overflow-x: auto
 # ```
 
-# :white_check_mark: Result: 以下のように表示されればOKです
+# :white_check_mark: Result: 以下のように表示されればOKです。画像のすぐ下、つまりカルーセルの内部にスライダーが移動しました。
 
 # <iframe width="640" height="360" src="https://www.youtube.com/embed/yREnYC_c7Ug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
