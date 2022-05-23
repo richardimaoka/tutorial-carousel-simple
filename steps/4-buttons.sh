@@ -13,7 +13,7 @@ git apply patches/23f1c64.patch # Add CarouselControl
 
 # :white_check_mark: Result: `CarouselContainer` の更に外側に `CarouselControl` というコンポーネントを作成しました。
 
-# ここからカルーセルをスライドさせるためのボタンを配置しますが、一気に実装してしまうとコードの差分が大きくなって、何がどう作用しているのか分かりづらくなってしまいます。そこでまずは、新しく作成した `CarouselControl` の中に何も動作しないボタンを配置します。
+# ここからカルーセルをスライドさせるためのボタンを配置しますが、一気に実装してしまうとコードの差分が大きくなって、何がどう作用しているのか分かりづらくなってしまいます。そこでまずは、何も動作しないボタンを配置します。
 
 # :large_orange_diamond: Action: 以下のコマンドを入力してください。
 
@@ -39,6 +39,8 @@ git apply patches/d52f9d5.patch # move the carousel slider to the 2nd item
 
 # ![2022-05-24_00h07_38.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/75738/d708dd49-e990-ca16-df47-5416eb28d535.png)
 
+# 2番目の画像が表示されました。
+
 # :large_orange_diamond: Action: 以下のコマンドを入力してください。
 
 # ```shell
@@ -48,6 +50,8 @@ git apply patches/118cca8.patch # move the carousel slider to the 3rd item
 # :white_check_mark: Result: 以下のように表示されればOKです。
 
 # ![2022-05-24_00h08_44.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/75738/c10672b5-728a-4a9b-9066-f5b4e2f4780d.png)
+
+# 3番目の画像が表示されました。
 
 # 次にボタンによって、CarouselControl のstateを更新しましょう。
 
