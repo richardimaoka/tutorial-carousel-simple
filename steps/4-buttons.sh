@@ -86,3 +86,29 @@ git apply patches/9dc0fda.patch # hide the scrollbar
 # :white_check_mark: Result: 以下のように表示されればOKです。
 
 # ![2022-05-24_00h17_11.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/75738/7748a1dd-8a5a-33c6-fb0b-30afcc907e34.png)
+
+# ソースコードの見た目を整えてみましょう。
+
+# :large_orange_diamond: Action: 以下のコマンドを入力してください。
+
+# ```shell
+git apply patches/96c33ee.patch # buttons as a separate component
+# ```
+
+`CarouselControl` の中に、`CarouselContainer` と `CarouselButtons` という粒度の揃ったコンポーネントが並びました。
+
+```ts
+const CarouselControl = () => {
+  ...
+  return (
+    <div style={{ width: "648px" }}>
+      <CarouselContainer
+        ...
+      />
+      <CarouselButtons
+        ...
+      />
+    </div>
+  );
+};
+```
