@@ -41,7 +41,7 @@ git apply patches/ab96f3c.patch # overflow-x: auto
 
 # <iframe width="640" height="360" src="https://www.youtube.com/embed/yREnYC_c7Ug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-# カルーセルのスライドが中途半端な位置で止まっています。
+# しかし、カルーセルのスライドが中途半端な位置で止まっています。
 
 # :large_orange_diamond: Action: 以下のコマンドを入力してください。
 

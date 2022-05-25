@@ -51,9 +51,7 @@ git apply patches/118cca8.patch # move the carousel slider to the 3rd item
 
 # ![2022-05-24_00h08_44.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/75738/c10672b5-728a-4a9b-9066-f5b4e2f4780d.png)
 
-# 3番目の画像が表示されました。
-
-# 次にボタンによって、CarouselControl のstateを更新しましょう。
+# 3番目の画像が表示されました。次にボタンによって、CarouselControl のstateを更新しましょう。
 
 # :large_orange_diamond: Action: 以下のコマンドを入力してください。
 
@@ -95,20 +93,20 @@ git apply patches/9dc0fda.patch # hide the scrollbar
 git apply patches/96c33ee.patch # buttons as a separate component
 # ```
 
-`CarouselControl` の中に、`CarouselContainer` と `CarouselButtons` という粒度の揃ったコンポーネントが並びました。
+# `CarouselControl` の中に、`CarouselContainer` と `CarouselButtons` という粒度の揃ったコンポーネントが並びました。
 
-```ts
-const CarouselControl = () => {
-  ...
-  return (
-    <div style={{ width: "648px" }}>
-      <CarouselContainer
-        ...
-      />
-      <CarouselButtons
-        ...
-      />
-    </div>
-  );
-};
-```
+# ```ts
+# const CarouselControl = () => {
+#   ...
+#   return (
+#     <div style={{ width: "648px" }}>
+#       <CarouselContainer
+#         ...
+#       />
+#       <CarouselButtons
+#         ...
+#       />
+#     </div>
+#   );
+# };
+# ```

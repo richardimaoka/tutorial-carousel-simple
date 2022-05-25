@@ -12,7 +12,7 @@ cd ../ || exit               # REMOVE THIS IN aggregate.sh - cd to the git repos
 # const [snapped, setSnapped] = useState(imagePathList[0]);
 # ```
 
-# 以下のようなものに変えると、記述量は若干増えますが、見通しが良くなるかもしれません。
+# 以下のようなものに変えると、記述量は若干増えますが、画像ごとの `isSnapped` 状態が明確になって見通しが良くなります。
 
 # ```ts
 # [
@@ -40,9 +40,7 @@ cd ../ || exit               # REMOVE THIS IN aggregate.sh - cd to the git repos
 git apply patches/1e29dab.patch # define imagestate
 # ```
 
-# 既存のコンポーネントを壊さないように、まだ利用していない `useState` を定義しました。
-
-# ではこの新しい `useState` を実際にコンポーネントで利用してみましょう。
+# 既存のコンポーネントを壊さないように、まだ利用していない `useState` を定義しました。ではこの新しい `useState` を実際にコンポーネントで利用してみましょう。
 
 # :large_orange_diamond: Action: 以下のコマンドを入力してください。
 
