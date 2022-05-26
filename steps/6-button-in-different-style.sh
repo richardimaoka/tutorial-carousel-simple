@@ -28,3 +28,4 @@ git apply patches/b9d3006.patch # let the prev and next buttons work
 # :white_check_mark: Result: 以下のように表示されればOKです。
 
 # <iframe width="640" height="360" src="https://www.youtube.com/embed/pF-erRwHEc0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
